@@ -14,6 +14,9 @@ export default function App() {
 
   const pressHandler = (id) => {
     console.log(id);
+    setPeople((prevPeople) => {
+      return prevPeople.filter(person => person.id  != id);
+    });
   }
 
   return (
@@ -30,15 +33,6 @@ export default function App() {
           
         )}
       ></FlatList>
-
-      {/* <ScrollView>
-        { people.map(item => (
-            <View key={item.key}>
-              <Text style={styles.item}>{item.name}</Text>
-            </View>
-          ))
-        }
-      </ScrollView> */}
     </View>
   );
 }
