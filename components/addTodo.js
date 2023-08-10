@@ -1,12 +1,14 @@
 import React, { useState } from 'react';
 import { StyleSheet, Text, View, TextInput, Button} from 'react-native';
 
-export default function AddTodo( {inputText,submitHandler} ) { //receive prop func from App.js
-
-    const [text, setText] = useState('');
+export default function AddTodo( {inputText,setInputText,submitHandler} ) { //receive prop func from App.js
 
     const changeHandler = (text) => {
-        setText(text);
+        setInputText('++++' + text);
+    }
+
+    const clearInputText = () => {
+        setInputText('');
     }
 
     return (

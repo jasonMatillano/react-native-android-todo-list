@@ -6,7 +6,7 @@ import AddTodo from './components/addTodo';
 
 export default function App() {
 
-  const inputText = 'Jason';
+  const [inputText, setInputText] = useState('Jason');
 
   const [todos, setTodos] = useState([
     { text: 'buy coffees', key: '1' },
@@ -24,6 +24,7 @@ export default function App() {
   const submitHandler = (text) => {
 
     if(text.length > 3) {
+      setInputText('')
       setTodos((prevTodos) => {
         return [
           { text: text, key: Math.random().toString() }, // generate random id
@@ -50,7 +51,7 @@ export default function App() {
       <View style={styles.container}>
         <Header/>
         <View style={styles.content}> 
-        <AddTodo inputText={inputText} submitHandler={submitHandler} /* send prop submitHandler *//> 
+        <AddTodo inputText={inputText} setInputText={setInputText} submitHandler={submitHandler} /* send prop submitHandler *//> 
         <View style={styles.list}>
           <FlatList
             data={todos}
