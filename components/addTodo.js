@@ -1,14 +1,23 @@
-import React, { useState } from 'react';
+import React, { useState, useRef  } from 'react';
 import { StyleSheet, Text, View, TextInput, Button} from 'react-native';
 
-export default function AddTodo( {inputText,setInputText,submitHandler} ) { //receive prop func from App.js
+export default function AddTodo( {submitHandler} ) { //receive prop func from App.js
+    const textInputRef = useRef(null);
+
+    const handleClearText = () => {
+      if (textInputRef.current) {
+        textInputRef.current.clear();
+      }
+    };
+
+    const [text, setText] = useState('');
 
     const changeHandler = (text) => {
-        setInputText('++++' + text);
+      setText(text);
     }
 
-    const clearInputText = () => {
-        setInputText('');
+    const onPressAdd = () => {
+        submitHandler(text);
     }
 
     return (
@@ -19,7 +28,7 @@ export default function AddTodo( {inputText,setInputText,submitHandler} ) { //re
             onChangeText={changeHandler}// track the change and value of TextInput
           ></TextInput>
           <Button
-            onPress={() => submitHandler(inputText)}
+            onPress={() => onPressAdd()}
             title='add todo'
             color='coral'
           ></Button>

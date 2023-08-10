@@ -51,7 +51,7 @@ export default function App() {
       <View style={styles.container}>
         <Header/>
         <View style={styles.content}> 
-        <AddTodo inputText={inputText} setInputText={setInputText} submitHandler={submitHandler} /* send prop submitHandler *//> 
+        <AddTodo submitHandler={submitHandler} /* send prop submitHandler *//> 
         <View style={styles.list}>
           <FlatList
             data={todos}
