@@ -15,8 +15,8 @@ export default function Sandbox() {
 const styles = StyleSheet.create({
     container: {
         // flex: 1,
-        flexDirection: 'row',
-        justifyContent: 'space-between',
+        flexDirection: 'column',
+        justifyContent: 'center',
         // alignItems: 'center',
         padding: 10,
         backgroundColor: '#ddd',
