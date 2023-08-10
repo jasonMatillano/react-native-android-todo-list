@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { StyleSheet, Text, View, TextInput, Button} from 'react-native';
 
-export default function AddTodo( {submitHandler} ) { //receive prop func
+export default function AddTodo( {inputText,submitHandler} ) { //receive prop func from App.js
 
     const [text, setText] = useState('');
 
@@ -17,7 +17,7 @@ export default function AddTodo( {submitHandler} ) { //receive prop func
             onChangeText={changeHandler}// track the change and value of TextInput
           ></TextInput>
           <Button
-            onPress={() => submitHandler(text)}
+            onPress={() => submitHandler(inputText)}
             title='add todo'
             color='coral'
           ></Button>
