@@ -4,7 +4,7 @@ import { StyleSheet, Text, View, TextInput, Button} from 'react-native';
 export default function AddTodo( {submitHandler} ) { //receive prop func from App.js
     const textInputRef = useRef(null);
 
-    const handleClearText = () => {
+    const handleClearText = () => { // clear text onPress event 
       if (textInputRef.current) {
         textInputRef.current.clear();
       }
@@ -12,12 +12,13 @@ export default function AddTodo( {submitHandler} ) { //receive prop func from Ap
 
     const [text, setText] = useState('');
 
-    const changeHandler = (text) => {
+    const changeHandler = (text) => { //
       setText(text);
     }
 
-    const onPressAdd = () => {
+    const handlePressAdd = () => {
         submitHandler(text);
+        handleClearText();
     }
 
     return (
@@ -25,10 +26,11 @@ export default function AddTodo( {submitHandler} ) { //receive prop func from Ap
           <TextInput
             style={styles.input}
             placeholder='new todo...'
+            ref={textInputRef} // displayed text
             onChangeText={changeHandler}// track the change and value of TextInput
           ></TextInput>
           <Button
-            onPress={() => onPressAdd()}
+            onPress={() => handlePressAdd()}
             title='add todo'
             color='coral'
           ></Button>
