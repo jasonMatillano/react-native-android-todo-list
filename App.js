@@ -5,6 +5,9 @@ import TodoItem from './components/todoItem';
 import AddTodo from './components/addTodo';
 
 export default function App() {
+
+  const [inputText, setInputText] = useState('Jason');
+
   const [todos, setTodos] = useState([
     { text: 'buy coffeess', key: '1' },
     { text: 'create an app', key: '2' },
@@ -21,6 +24,7 @@ export default function App() {
   const submitHandler = (text) => {
 
     if(text.length > 3) {
+      setInputText('')
       setTodos((prevTodos) => {
         return [
           { text: text, key: Math.random().toString() }, // generate random id
