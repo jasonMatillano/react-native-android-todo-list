@@ -1,15 +1,13 @@
 import React from 'react'
 import {StyleSheet, TouchableOpacity, Text, View} from 'react-native';
-import { MaterialIcons } from '@expo/vector-icons';
+import DeleteButton from './deleteButton';
 
 export default function TodoItem({ pressHandler, item }) {
   return (
-    <TouchableOpacity onPress={() => pressHandler(item.key)}>
       <View style={styles.item}>
-        <MaterialIcons name='delete' size={18} color='#bbb' />
+        <DeleteButton item={item} pressHandler={pressHandler}/>
         <Text style={styles.itemText}>{item.text}</Text>
       </View>
-    </TouchableOpacity>
   )
 }
 
